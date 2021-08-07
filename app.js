@@ -2,7 +2,7 @@
 const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 document.querySelector('#reset').addEventListener('click', function () {
-    defaultValue('-', '-', '-', 'Input Your Birth Date');
+    defaultValue('--', '--', '--', 'Input Your Birth Date');
 
 });
 
@@ -13,15 +13,18 @@ function defaultValue(textYears, textMonths, textdays, worning) {
     document.getElementById('worning').textContent = worning;
 }
 
-function ageCalculate() {
-    let inputDate = new Date(document.getElementById("date-input").value);
+document.querySelector('#btn').addEventListener('click', function () {
 
-    if (inputDate == '' || inputDate == null || inputDate == NaN) {
-        defaultValue('-', '-', '-', 'Input Your Birth Date');
+    // let inputDate = new Date(document.getElementById("date-input").value);
+    let inputDate = document.querySelector('#date-input').value;
 
+    if (inputDate == '') {
+        defaultValue('--', '--', '--', "You Don't put any value please Input Your Birth Date");
 
     }
-    else if (inputDate != '') {
+
+    else if (inputDate != '' || inputDate != undefined) {
+        inputDate = new Date(document.getElementById("date-input").value);
         let today = new Date();
 
         let birthMonth, birthDate, birthYear;
@@ -83,7 +86,6 @@ function ageCalculate() {
         displayResult(birthYear, birthMonth, birthDate, message);
 
     }
-
     // Lear year function
     function leapChecker(year) {
         if (year % 4 == 0 || (year % 100 == 0 && year % 400 == 0)) {
@@ -93,13 +95,6 @@ function ageCalculate() {
             months[1] = 28;
         }
     }
-
-
-
-
-
-
-
     // Dom Function
     function displayResult(birthYear, birthMonth, birthDate, message) {
         document.getElementById('years').textContent = birthYear;
@@ -108,7 +103,12 @@ function ageCalculate() {
         document.getElementById('worning').textContent = message;
 
     }
-}
+
+});
+
+
+
+
 
 
 
