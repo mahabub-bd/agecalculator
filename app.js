@@ -72,6 +72,9 @@ function ageCalculate() {
         if (birthYear !== 0 && birthMonth !== 0) {
             message = `You age is ${birthYear} Years ${birthMonth} Months ${birthDate} Days`
         }
+        else if (birthYear !== 0 && birthMonth === 0) {
+            message = `Your Age is ${birthYear} Years ${birthDate} Days`
+        }
         else if (birthYear === 0 && birthMonth === 0) {
             message = `Your Age is  ${birthDate} Days`
         }
