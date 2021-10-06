@@ -1,3 +1,7 @@
+@import "mixins";
+@import "variables";
+@import "grid";
+
 *,
 *::before,
 *::after {
@@ -17,18 +21,34 @@ body {
 }
 .container {
   position: relative;
-  width: 40%;
+  width: 60vw;
   min-width: 450px;
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
   padding: 50px 40px;
-
+  height: 600px;
   filter: blur(-1px);
   box-shadow: -5px -5px 20px 10px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
-  height: 480px;
+
+  @include responsive(phone) {
+    width: 60%;
+    max-height: 380px;
+  }
+  @include responsive(tab-port) {
+    width: 80%;
+    height: 500px;
+  }
+  @include responsive(desktop) {
+    width: 80%;
+    height: 500px;
+  }
+  @include responsive(big-desktop) {
+    width: 50%;
+    height: 600px;
+  }
 }
 .container * {
   border: none;
@@ -40,8 +60,12 @@ body {
   background: #080808;
   padding: 30px 25px;
   border-radius: 8px;
-  box-shadow: 0 15px 20px rgb(0, 0, 0, 0.3);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
   margin-bottom: 50px;
+  @include responsive(phone) {
+    padding: 20px 15px;
+    width: 100%;
+  }
 }
 h3 {
   margin-bottom: 30px;
@@ -49,6 +73,9 @@ h3 {
   text-transform: uppercase;
   font-size: 30px;
   letter-spacing: 3px;
+  @include responsive(phone) {
+    font-size: 20px;
+  }
 }
 input,
 button {
@@ -59,59 +86,107 @@ button {
   border-radius: 5px;
   font-size: 17px;
   cursor: pointer;
+  @include responsive(phone) {
+    font-size: 10px;
+    height: 25px;
+    width: 100%;
+  }
 }
+
 #reset {
   position: absolute;
-  top: 30px;
+  top: 20px;
   height: 30px;
   width: 100px;
-  background: rgba(255, 0, 0, 0.87);
+  background: rgba(255, 255, 255, 0.87);
   color: #efefef;
-  font-size: 15;
-  text-shadow: rgb(40, 180, 135);
-  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.3);
+  font-size: 15px;
+  color: #080808;
+  @include responsive(phone) {
+    height: 20px;
+    width: 60px;
+    top: 20px;
+    left: 50px;
+    font-size: 14px;
+  }
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font-size: 16px;
 }
 input {
   width: 60%;
   padding: 0 20px;
+  @include responsive(phone) {
+    width: 55%;
+    padding: 0 20px;
+  }
 }
 
 button {
   width: 30%;
   float: right;
+  @include responsive(phone) {
+    padding: 0 20px;
+    width: 25%;
+  }
 }
 .outputs-wrapper {
   width: 80%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  @include responsive(phone) {
+    width: 80%;
+  }
+  @include responsive(big-desktop) {
+    width: 60%;
+  }
 }
 
 .outputs-wrapper > * {
   height: 120px;
   width: 120px;
+  @include responsive(tablet) {
+    height: 60px;
+    width: 60px;
+  }
+  @include responsive(desktop) {
+    height: 80px;
+    width: 80px;
+  }
+  @include responsive(big-desktop) {
+    height: 150px;
+    width: 150px;
+  }
   background-color: #080808;
   border-radius: 5px;
   color: #ffffff;
   display: grid;
+
   place-items: center;
   padding: 20px 0;
-  box-shadow: 0 15px 20px rgb(0, 0, 0, 0.3);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
 }
 span {
   font-size: 30px;
   font-weight: 500;
+  @include responsive(phone) {
+    font-size: 20px;
+  }
 }
 p {
   font-size: 14px;
   color: #707070;
   font-weight: 400;
 }
-#worning {
-  margin-top: 30px;
+#message {
+  margin-top: 60px;
   text-align: center;
   color: #080808;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 500;
+  @include responsive(phone) {
+    font-size: 14px;
+    margin-top: 20px;
+  }
 }

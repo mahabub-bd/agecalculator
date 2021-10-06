@@ -1,50 +1,28 @@
-
+'use strict';
 const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-document.querySelector('#reset').addEventListener('click', function () {
-    defaultValue('--', '--', '--', 'Input Your Birth Date');
-
-});
-
-function defaultValue(textYears, textMonths, textdays, worning) {
-    document.getElementById('years').textContent = textYears;
-    document.getElementById('months').textContent = textMonths;
-    document.getElementById('days').textContent = textdays;
-    document.getElementById('worning').textContent = worning;
-}
-
 document.querySelector('#btn').addEventListener('click', function () {
-
-    // let inputDate = new Date(document.getElementById("date-input").value);
     let inputDate = document.querySelector('#date-input').value;
-
     if (inputDate == '') {
-        defaultValue('--', '--', '--', "You Don't put any value please Input Your Birth Date");
-
+        DisplayResult('-', '-', '-', "You don't put any value please input your birth date");
     }
-
-    else if (inputDate != '' || inputDate != undefined) {
+    else {
         inputDate = new Date(document.getElementById("date-input").value);
         let today = new Date();
-
         let birthMonth, birthDate, birthYear;
-
         let birthDetails = {
             date: inputDate.getDate(),
             month: inputDate.getMonth() + 1,
             year: inputDate.getFullYear()
-        }
+        };
 
         let currentYear = today.getFullYear();
         let currentMonth = today.getMonth() + 1;
         let currentDate = today.getDate();
 
-        leapChecker(currentYear)
+        leapChecker(currentYear);
         // Not Born check
-
-
         if (birthDetails.year > currentYear || (birthDetails.month > currentMonth && birthDetails.year == currentYear) || (birthDetails.date > currentDate && birthDetails.year == currentYear)) {
-            defaultValue('-', '-', '-', 'Not Born Yet');
+            DisplayResult('-', '-', '-', 'Not Born Yet');
             return;
         }
         // Calculate Birth Year
@@ -83,7 +61,7 @@ document.querySelector('#btn').addEventListener('click', function () {
         }
         else if (birthYear === 0) { message = `Your Age is ${birthMonth} Months ${birthDate} Days` }
 
-        displayResult(birthYear, birthMonth, birthDate, message);
+        DisplayResult(birthYear, birthMonth, birthDate, message);
 
     }
     // Lear year function
@@ -95,17 +73,20 @@ document.querySelector('#btn').addEventListener('click', function () {
             months[1] = 28;
         }
     }
-    // Dom Function
-    function displayResult(birthYear, birthMonth, birthDate, message) {
-        document.getElementById('years').textContent = birthYear;
-        document.getElementById('months').textContent = birthMonth;
-        document.getElementById('days').textContent = birthDate;
-        document.getElementById('worning').textContent = message;
-
-    }
-
 });
 
+// Reset Button
+document.querySelector('#reset').addEventListener('click', function () {
+    DisplayResult('-', '-', '-', 'Input Your Birth Date');
+});
+
+// Dom Function
+function DisplayResult(birthYear, birthMonth, birthDate, message) {
+    document.getElementById('years').textContent = birthYear;
+    document.getElementById('months').textContent = birthMonth;
+    document.getElementById('days').textContent = birthDate;
+    document.getElementById('message').textContent = message;
+}
 
 
 
