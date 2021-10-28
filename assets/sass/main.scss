@@ -20,6 +20,11 @@ body {
   );
 }
 .container {
+  background: linear-gradient(
+    to left top,
+    rgb(30, 180, 135),
+    rgb(125, 213, 111)
+  );
   position: relative;
   width: 60vw;
   min-width: 450px;

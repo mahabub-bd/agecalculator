@@ -2,6 +2,7 @@
 const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 document.querySelector('#btn').addEventListener('click', function () {
     let inputDate = document.querySelector('#date-input').value;
+
     if (inputDate == '') {
         DisplayResult('-', '-', '-', "You don't put any value please input your birth date");
     }
@@ -73,11 +74,15 @@ document.querySelector('#btn').addEventListener('click', function () {
             months[1] = 28;
         }
     }
+    document.querySelector('#date-input').value = '';
 });
 
 // Reset Button
 document.querySelector('#reset').addEventListener('click', function () {
     DisplayResult('-', '-', '-', 'Input Your Birth Date');
+    document.querySelector('#date-input').value = '';
+
+
 });
 
 // Dom Function

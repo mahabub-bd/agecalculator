@@ -69,6 +69,7 @@ body {
   background: linear-gradient(to left top, #28b487, #7dd56f); }
 
 .container {
+  background: linear-gradient(to left top, #1eb487, #7dd56f);
   position: relative;
   width: 60vw;
   min-width: 450px;
