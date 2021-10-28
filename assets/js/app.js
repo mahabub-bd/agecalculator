@@ -2,7 +2,6 @@
 const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 document.querySelector('#btn').addEventListener('click', function () {
     let inputDate = document.querySelector('#date-input').value;
-
     if (inputDate == '') {
         DisplayResult('-', '-', '-', "You don't put any value please input your birth date");
     }
@@ -15,11 +14,9 @@ document.querySelector('#btn').addEventListener('click', function () {
             month: inputDate.getMonth() + 1,
             year: inputDate.getFullYear()
         };
-
         let currentYear = today.getFullYear();
         let currentMonth = today.getMonth() + 1;
         let currentDate = today.getDate();
-
         leapChecker(currentYear);
         // Not Born check
         if (birthDetails.year > currentYear || (birthDetails.month > currentMonth && birthDetails.year == currentYear) || (birthDetails.date > currentDate && birthDetails.year == currentYear)) {
@@ -81,10 +78,7 @@ document.querySelector('#btn').addEventListener('click', function () {
 document.querySelector('#reset').addEventListener('click', function () {
     DisplayResult('-', '-', '-', 'Input Your Birth Date');
     document.querySelector('#date-input').value = '';
-
-
 });
-
 // Dom Function
 function DisplayResult(birthYear, birthMonth, birthDate, message) {
     document.getElementById('years').textContent = birthYear;
@@ -92,9 +86,5 @@ function DisplayResult(birthYear, birthMonth, birthDate, message) {
     document.getElementById('days').textContent = birthDate;
     document.getElementById('message').textContent = message;
 }
-
-
-
-
 
 

@@ -66,10 +66,12 @@
 body {
   max-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(to left top, #28b487, #7dd56f); }
+  background-image: linear-gradient(to right bottom, rgba(40, 180, 133, 0.7), rgba(126, 213, 111, 0.8)), url(../bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 .container {
-  background: linear-gradient(to left top, #1eb487, #7dd56f);
+  background-image: linear-gradient(to right bottom, rgba(40, 180, 133, 0.7), rgba(126, 213, 111, 0.8));
   position: relative;
   width: 60vw;
   min-width: 450px;
@@ -80,7 +82,7 @@ body {
   padding: 50px 40px;
   height: 600px;
   filter: blur(-1px);
-  box-shadow: -5px -5px 20px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: -5px -5px 20px 10px rgba(55, 55, 55, 0.2);
   border-radius: 12px; }
   @media only screen and (max-width: 36em) {
     .container {
@@ -207,7 +209,7 @@ button {
 .outputs-wrapper > * {
   height: 120px;
   width: 120px;
-  background-color: #080808;
+  background: #080808;
   border-radius: 5px;
   color: #ffffff;
   display: grid;
