@@ -8,9 +8,9 @@
 
 _Age_Calculator_
 
-# [Live link](https://mahabub-hossain-bd.github.io/agecalculator)
+# [Live link](https://mahabub-bd.github.io/agecalculator)
 
-# [Source Code](https://github.com/mahabub-hossain-bd/agecalculator)
+# [Source Code](https://github.com/mahabub-bd/agecalculator)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
